@@ -30,5 +30,11 @@ Route::prefix('categories')->group(function () {
 
     Route::post('/store', [\App\Http\Controllers\CategoryController::class, 'store'])
         ->name('categories.store');
+
+    Route::get('/edit/{id}', [\App\Http\Controllers\CategoryController::class, 'edit'])
+        ->name('categories.edit');
+
+    Route::get('/delete/{id}', [\App\Http\Controllers\CategoryController::class, 'delete'])
+        ->name('categories.delete');
 });
 
