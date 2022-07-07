@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', [\App\Http\Controllers\CategoryController::class, 'index'])
+        ->name('categories.index');
+
+    Route::get('/create', [\App\Http\Controllers\CategoryController::class, 'create'])
+    ->name('categories.create');
+
+    Route::post('/store', [\App\Http\Controllers\CategoryController::class, 'store'])
+        ->name('categories.store');
+});
+
