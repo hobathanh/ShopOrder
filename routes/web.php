@@ -41,3 +41,13 @@ Route::prefix('categories')->group(function () {
         ->name('categories.delete');
 });
 
+Route::prefix('menus')->group(function () {
+    Route::get('/', [\App\Http\Controllers\MenuController::class, 'index'])
+        ->name('menus.index');
+
+    Route::get('/create', [\App\Http\Controllers\MenuController::class, 'create'])
+        ->name('menus.create');
+
+    Route::post('/store', [\App\Http\Controllers\MenuController::class, 'store'])
+        ->name('menus.store');
+});
